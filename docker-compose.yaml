@@ -1,0 +1,14 @@
+services:
+  client:
+    build:
+      context: ./client # Path to the backend Dockerfile
+    ports:
+      - "3000:80" # Map port 3000 on host to port 80 in container
+    environment:
+      - REACT_APP_API_PORT=5001 # Pass environment variable to the backend
+
+  server:
+    build:
+      context: .
+    ports:
+      - "5001:5001" # Map port 5001 on host to port 5001 in container
